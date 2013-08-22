@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1376902730559
+Bundle-Activator: org.fbi.posprize.internal.AppActivator
+Bundle-ClassPath: .,
+ lib/commons-lang-2.5.jar,
+ lib/logback-access-1.0.13.jar,
+ lib/logback-core-1.0.13.jar,
+ lib/logback-classic-1.0.13.jar,
+ lib/slf4j-api-1.7.5.jar,
+ lib/ojdbc6.jar,
+ lib/jdomV8.jar
+Bundle-ManifestVersion: 2
+Bundle-Name: LINKING :: APP :: PosPrize
+Bundle-SymbolicName: LINKING-APP-PosPrize
+Bundle-Version: 1.0.0
+Created-By: 1.7.0_10 (Oracle Corporation)
+Import-Package: org.osgi.framework,
+ org.xml.sax,
+ org.xml.sax.helpers,
+ javax.xml.parsers,
+ javax.naming,
+ javax.management,
+ javax.crypto,
+ javax.crypto.spec,
+ org.ietf.jgss,
+ org.fbi.linking.api
+Private-Package: lib,org.fbi.posprize.internal
+Tool: Bnd-1.50.0
