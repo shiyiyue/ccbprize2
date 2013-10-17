@@ -1,11 +1,15 @@
 package org.fbi.posprize.processor;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.fbi.linking.api.PosRequest;
 import org.fbi.linking.api.PosResponse;
+import org.fbi.posprize.common.MybatisFactory;
 import org.fbi.posprize.helper.MD5Helper;
 import org.fbi.posprize.helper.jdbctemplate.JdbcTemplate;
 import org.fbi.posprize.helper.jdbctemplate.StatementCallback;
+import org.fbi.posprize.repository.dao.PrizeMapper;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.ResultSet;
@@ -58,6 +62,19 @@ public class T1001processor extends TxnMainProcessor {
         }
     }
 
+    private String processTxn_mybatis() throws UnsupportedEncodingException, SQLException {
+        SqlSessionFactory sqlSessionFactory = MybatisFactory.ORACLE.getInstance();
+
+        SqlSession session = sqlSessionFactory.openSession();
+        int cnt;
+        try {
+            PrizeMapper prizeMapper = session.getMapper(PrizeMapper.class);
+            cnt = prizeMapper.selectCount();
+        } finally {
+            session.close();
+        }
+        return "1111-----" + cnt;
+    }
     private String processTxn() throws UnsupportedEncodingException, SQLException {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
 

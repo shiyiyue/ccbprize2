@@ -67,6 +67,8 @@ public class MessageServerHandler extends SimpleChannelInboundHandler<String> im
 
         ctx.writeAndFlush(responseMessage);
         logger.info("服务器返回报文：" + responseMessage);
+
+        ctx.close();
     }
 
     @Override

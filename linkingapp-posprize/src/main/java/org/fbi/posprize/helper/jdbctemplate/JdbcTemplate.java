@@ -11,7 +11,6 @@ import java.sql.Statement;
 /**
  * User: zhanrui
  * Date: 13-5-16
- * Time: обнГ1:56
  */
 public class JdbcTemplate {
     public static Logger logger = LoggerFactory.getLogger(JdbcTemplate.class);
